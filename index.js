@@ -13,8 +13,8 @@ const todoList = () => {
       // ..
       // ..
       // ..
-      let overdueItems=all.filter((eachItem)=>{
-          eachItem.dueDate===yesterday}),status ="[ ]"
+      let overdueItems=all.filter((eachItem)=>
+          eachItem.dueDate===yesterday),status ="[ ]"
       return overdueItems.map((eachItem)=>{
               status="[ ]"
              if(eachItem.completed===true){
@@ -28,17 +28,13 @@ const todoList = () => {
       // ..
       // ..
       // ..
-      let dueTodayItems=[],status ="[ ]"
-      for(let i of all){
-        if(i.dueDate===today){
-            if(i.completed===true){
-                status ="[x]"
-            }
-            dueTodayItems.push(`${status} ${i.title}`)
-            status="[ ]"
-        }
-      }
-      return dueTodayItems
+      let dueTodayItems=all.filter((eachItem)=>
+          eachItem.dueDate===today),status ="[ ]"
+      return dueTodayItems.map((eachItem)=>{
+              status="[ ]"
+             if(eachItem.completed===true){
+                status="[x]"}
+              return `${status} ${eachItem.title}`})
     }
   
     const dueLater = () => {
@@ -47,17 +43,13 @@ const todoList = () => {
       // ..
       // ..
       // ..
-      let dueLaterItems=[],status ="[ ]"
-      for(let i of all){
-        if(i.dueDate===tomorrow){
-            if(i.completed===true){
-                status ="[x]"
-            }
-            dueLaterItems.push(`${status} ${i.title} ${i.dueDate}`)
-            status="[ ]"
-        }
-      }
-      return dueLaterItems
+    let dueLaterItems=all.filter((eachItem)=>
+          eachItem.dueDate===tomorrow),status ="[ ]"
+      return dueLaterItems.map((eachItem)=>{
+              status="[ ]"
+             if(eachItem.completed===true){
+                status="[x]"}
+              return `${status} ${eachItem.title} ${eachItem.dueDate}`})
     }
   
     const toDisplayableList = (list) => {
