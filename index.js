@@ -13,17 +13,13 @@ const todoList = () => {
       // ..
       // ..
       // ..
-      let overdueItems=[],status ="[ ]"
-      for(let i of all){
-        if(i.dueDate===yesterday){
-            if(i.completed===true){
-                status ="[x]"
-            }
-            overdueItems.push(`${status} ${i.title} ${i.dueDate}`)
-            status="[ ]"
-        }
-      }
-    return overdueItems
+      let overdueItems=all.filter((eachItem)=>{
+          eachItem.dueDate===yesterday}),status ="[ ]"
+      return overdueItems.map((eachItem)=>{
+              status="[ ]"
+             if(eachItem.completed===true){
+                status="[x]"}
+              return `${status} ${eachItem.title} ${eachItem.dueDate}`})
     }
   
     const dueToday = () => {
